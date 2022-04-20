@@ -4,15 +4,10 @@ using UnityEngine;
 
 public class Enemy : MonoBehaviour
 {
-    private float _remainingLifeTime = 2f;
+    private float _lifeTime = 2f;
 
     private void Update()
     {
-        _remainingLifeTime -= Time.deltaTime;
-
-        if (_remainingLifeTime <= 0)
-        {
-            Destroy(gameObject);
-        }
+        Destroy(gameObject, _lifeTime);
     }
 }
