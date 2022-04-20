@@ -21,8 +21,6 @@ public class Timer : MonoBehaviour
             _timer = TimerMinValue;
 
             _timerReset.Invoke();
-
-            Debug.Log(Time.time);
         }         
     }
 }

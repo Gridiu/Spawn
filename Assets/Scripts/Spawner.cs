@@ -5,7 +5,7 @@ using UnityEngine;
 public class Spawner : MonoBehaviour
 {
     [SerializeField] private Transform _points;
-    [SerializeField] private GameObject _prefab;
+    [SerializeField] private Enemy _enemyPrefab;
 
     private Transform[] _spawnPoints;
     private int _currentPointIndex;
@@ -24,7 +24,7 @@ public class Spawner : MonoBehaviour
     {
         int firstPointIndex = 0;
 
-        Instantiate(_prefab, _spawnPoints[_currentPointIndex].transform);
+        Instantiate(_enemyPrefab, _spawnPoints[_currentPointIndex].transform);
 
         _currentPointIndex++;
 
