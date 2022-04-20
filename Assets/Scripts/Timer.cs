@@ -5,22 +5,22 @@ using UnityEngine.Events;
 
 public class Timer : MonoBehaviour
 {
-    private const float TimerMinValue = 0f;
-    private const float TimerMaxValue = 2f;
+    private const int SecondsNumber = 2;
 
-    [SerializeField] private UnityEvent _timerReset;
+    [SerializeField] private UnityEvent _reset;
 
-    private float _timer;
-
-    private void Update()
+    private void Start()
     {
-        _timer += Time.deltaTime;
+        StartCoroutine(NoteTime());
+    }
 
-        if (_timer >= TimerMaxValue)
+    private IEnumerator NoteTime()
+    {
+        while (true)
         {
-            _timer = TimerMinValue;
+            yield return new WaitForSeconds(SecondsNumber);
 
-            _timerReset.Invoke();
-        }         
+            _reset.Invoke();
+        }
     }
 }
